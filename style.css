@@ -1,0 +1,63 @@
+
+:root{
+  --rosa:#d87791; --rosa2:#f4c5d1; --texto:#593842; --suave:#8d6973;
+  --papel:rgba(255,255,255,.86); --sombra:0 16px 45px rgba(107,65,79,.14);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;color:var(--texto);
+  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:
+    radial-gradient(circle at 10% 10%,#fde5ec,transparent 28%),
+    radial-gradient(circle at 90% 30%,#f9e1e8,transparent 30%),
+    linear-gradient(180deg,#fff9fb,#fff2f6);
+  overflow-x:hidden;
+}
+main{width:min(100%,820px);margin:auto;padding:0 15px 60px}
+.portada{min-height:100svh;display:grid;place-items:center;text-align:center}
+.portada-card,.bloque{
+  width:100%;background:var(--papel);backdrop-filter:blur(12px);
+  border:1px solid rgba(216,119,145,.14);box-shadow:var(--sombra);border-radius:28px;
+}
+.portada-card{padding:42px 22px}
+.mini{text-transform:uppercase;letter-spacing:.14em;font-size:.76rem;color:var(--suave)}
+h1,h2{font-family:Georgia,serif}
+h1{font-size:clamp(2.7rem,12vw,5rem);margin:10px 0}
+.portada p{color:var(--suave);font-size:1.05rem}
+.corazon{font-size:2.5rem;margin:12px}
+button{
+  margin-top:16px;border:0;border-radius:999px;padding:15px 24px;
+  background:linear-gradient(135deg,var(--rosa),#c7637e);color:#fff;
+  font-size:1rem;font-weight:700;box-shadow:0 9px 24px rgba(199,99,126,.28);cursor:pointer
+}
+button:active{transform:scale(.97)}
+.oculto{display:none}
+.mostrar{display:block;animation:aparecer .8s ease both}
+@keyframes aparecer{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.bloque{padding:28px 20px;margin:25px 0}
+.intro{text-align:center;margin-top:25px}
+.intro span{font-size:2rem}.intro h2{font-size:2rem;margin:8px}.intro p{line-height:1.7;color:var(--suave)}
+.galeria{display:grid;grid-template-columns:1fr;gap:18px}
+figure{
+  margin:0;background:#fff;border-radius:22px;overflow:hidden;
+  box-shadow:0 12px 30px rgba(99,60,74,.12);
+  transform:rotate(-.4deg)
+}
+figure:nth-child(even){transform:rotate(.4deg)}
+figure img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;background:#f7e7ec}
+figcaption{text-align:center;font-family:Georgia,serif;padding:14px 12px 17px;color:#77535d}
+.carta{font-family:Georgia,serif;font-size:1.04rem;line-height:1.9}
+.carta h2{text-align:center;font-size:2rem}.sobre{text-align:center;font-size:2.2rem}
+.carta .final{text-align:center;font-size:1.16rem;margin-top:28px}
+.firma{text-align:right;margin-top:30px;font-size:1.1rem}
+.final-pagina{text-align:center;padding-top:38px;padding-bottom:38px}
+.final-pagina h2{font-size:1.8rem}.final-pagina p{color:var(--suave);line-height:1.6}
+.latido{animation:latido 1.5s infinite}@keyframes latido{50%{transform:scale(1.14)}}
+.petalos{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:-1}
+.petalo{position:absolute;top:-30px;opacity:.18;animation:caer linear infinite}
+@keyframes caer{to{transform:translateY(110vh) rotate(300deg)}}
+@media(min-width:650px){
+  .galeria{grid-template-columns:repeat(2,1fr)}
+  .bloque{padding:36px}
+}
